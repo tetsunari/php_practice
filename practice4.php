@@ -5,10 +5,9 @@
 // $a = array_slice($scores,2);
 // $b = array_slice($scores, 2, 3);  //上記と同じ
 // $c = array_slice($scores, -2);
-// var_dump($a);
-// var_dump($b);
-// var_dump($c);
-
+// var_dump($a); //[50,60,70]
+// var_dump($b); //[50,60,70]
+// var_dump($c); //[60,70]
 
 //array_spliceの使い方
 // array_slice($scores, 2, 2); //[30, 40, 70]
@@ -85,3 +84,18 @@
 // //   echo 'ma-ma-';
 // // }
 // echo array_search(70, $scores);
+
+//asorとksort
+$scores = [
+  'taguchi' => 80,
+  'hayashi' => 70,
+  'kikuchi' => 60,
+];
+asort($scores); //keyと値のセットで値小さい順
+var_dump($scores);
+arsort($scores);  //keyと値のセットで値大きいさい順
+var_dump($scores);
+ksort($scores); //keyと値のセットでkey小さい順
+var_dump($scores);
+krsort($scores);//keyと値のセットでkey大きいさい順
+var_dump($scores);
