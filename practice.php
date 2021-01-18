@@ -93,7 +93,7 @@
 
 function sum(...$numbers)
 {
-  $toatal = 0;
+  $total = 0;
   foreach ($numbers as $number){
     $total += $number;
   }

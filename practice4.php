@@ -86,16 +86,35 @@
 // echo array_search(70, $scores);
 
 //asorとksort
-$scores = [
-  'taguchi' => 80,
-  'hayashi' => 70,
-  'kikuchi' => 60,
+// $scores = [
+//   'taguchi' => 80,
+//   'hayashi' => 70,
+//   'kikuchi' => 60,
+// ];
+// asort($scores); //keyと値のセットで値小さい順
+// var_dump($scores);
+// arsort($scores);  //keyと値のセットで値大きいさい順
+// var_dump($scores);
+// ksort($scores); //keyと値のセットでkey小さい順
+// var_dump($scores);
+// krsort($scores);//keyと値のセットでkey大きいさい順
+// var_dump($scores);
+
+//usort
+$data = [
+  ['name' => 'taguchi', 'score' => 80],
+  ['name' => 'kikuchi', 'score' => 60],
+  ['name' => 'hayashi', 'score' => 70],
+  ['name' => 'tamachi', 'score' => 60],
 ];
-asort($scores); //keyと値のセットで値小さい順
-var_dump($scores);
-arsort($scores);  //keyと値のセットで値大きいさい順
-var_dump($scores);
-ksort($scores); //keyと値のセットでkey小さい順
-var_dump($scores);
-krsort($scores);//keyと値のセットでkey大きいさい順
-var_dump($scores);
+usort(
+  $data,
+  function($a, $b){
+    //二つの値が同じで順番を変えたくない時は０を返す
+    if($a['score'] === $b['score']){
+      return 0;
+    }
+    return $a['score'] > $b['score'] ? 1 : -1;
+  }
+);
+print_r($data);
