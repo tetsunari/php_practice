@@ -36,10 +36,32 @@
 // $posts[1]->show();
 
 //コンストラクタ
+// class Post
+// {
+//   public $text;
+//   public $likes;
+//   public function __construct($text, $likes)
+//   {
+//     $this->text = $text;
+//     $this->likes = $likes;
+//   }
+//   public function show()
+//   {
+//     printf('%s (%d)' .PHP_EOL, $this->text, $this->likes);
+//   }
+// }
+// $posts = [];
+// $posts[0] = new Post('hello', 0);
+// $posts[1] = new Post('hello world', 1);
+// $posts[0]->show();
+// $posts[1]->show();
+
+//アクセス修飾子
 class Post
 {
   public $text;
   public $likes;
+  // private $likes; //←にするとclass内でしか使えない
   public function __construct($text, $likes)
   {
     $this->text = $text;
@@ -53,5 +75,6 @@ class Post
 $posts = [];
 $posts[0] = new Post('hello', 0);
 $posts[1] = new Post('hello world', 1);
+$posts[0]->likes++;
 $posts[0]->show();
 $posts[1]->show();
