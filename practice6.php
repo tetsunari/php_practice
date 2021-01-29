@@ -57,24 +57,76 @@
 // $posts[1]->show();
 
 //アクセス修飾子
+// class Post
+// {
+//   public $text;
+//   public $likes;
+//   // private $likes; //←にするとclass内でしか使えない
+//   public function __construct($text, $likes)
+//   {
+//     $this->text = $text;
+//     $this->likes = $likes;
+//   }
+//   public function show()
+//   {
+//     printf('%s (%d)' .PHP_EOL, $this->text, $this->likes);
+//   }
+// }
+// $posts = [];
+// $posts[0] = new Post('hello', 0);
+// $posts[1] = new Post('hello world', 1);
+// $posts[0]->likes++;
+// $posts[0]->show();
+// $posts[1]->show();
+
+//プロパティ操作
+// class Post
+// {
+//   private $text;
+//   // public $likes;
+//   private $likes; //←にするとclass内でしか使えない
+//   public function __construct($text, $likes)
+//   {
+//     $this->text = $text;
+//     $this->likes = $likes;
+//   }
+//   public function show()
+//   {
+//     printf('%s (%d)' .PHP_EOL, $this->text, $this->likes);
+//   }
+//   public function like()
+//   {
+//     $this->likes++;
+//     if ($this->likes > 100) {
+//       $this->likes = 100;
+//     }
+//   }
+// }
+// $posts = [];
+// $posts[0] = new Post('hello', 0);
+// $posts[1] = new Post('hello world', 1);
+// // $posts[0]->likes++;
+// $posts[0]->like();
+// $posts[1]->like();
+// $posts[0]->show();
+// $posts[1]->show();
+// //修飾子がクラス内で何ができるか明確にすることをカプセル化と言う
+
+//プロパティで型宣言
 class Post
 {
-  public $text;
-  public $likes;
-  // private $likes; //←にするとclass内でしか使えない
-  public function __construct($text, $likes)
+  private $text;
+  public function __construct($text)
   {
     $this->text = $text;
-    $this->likes = $likes;
   }
   public function show()
   {
-    printf('%s (%d)' .PHP_EOL, $this->text, $this->likes);
+    printf('%s' . PHP_EOL, $this->text);
   }
 }
 $posts = [];
-$posts[0] = new Post('hello', 0);
-$posts[1] = new Post('hello world', 1);
-$posts[0]->likes++;
+$posts[0] = new Post('hello');
+$posts[1] = new Post('hello again');
 $posts[0]->show();
 $posts[1]->show();
