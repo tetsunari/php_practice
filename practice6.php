@@ -40,7 +40,7 @@
 // {
 //   public $text;
 //   public $likes;
-//   public function __construct($text, $likes)
+//   public function __construct($text, $likes) //newした時に実行されるコンストラクタ
 //   {
 //     $this->text = $text;
 //     $this->likes = $likes;
@@ -113,16 +113,43 @@
 // //修飾子がクラス内で何ができるか明確にすることをカプセル化と言う
 
 //プロパティで型宣言
+// declare(strict_types=1); //強い型チェック
+// class Post
+// {
+//   private string $text;
+//   public function __construct(string $text)
+//   {
+//     $this->text = $text;
+//   }
+//   public function show()
+//   {
+//     printf('%s' . PHP_EOL, $this->text);
+//   }
+// }
+// $posts = [];
+// $posts[0] = new Post(5);
+// // $posts[0] = new Post('hello');
+// $posts[1] = new Post('hello again');
+// $posts[0]->show();
+// $posts[1]->show();
+
+//static
 class Post
 {
   private $text;
+  private static $count = 0;  //クラスプロパティ
   public function __construct($text)
   {
     $this->text = $text;
+    self::$count++;
   }
   public function show()
   {
     printf('%s' . PHP_EOL, $this->text);
+  }
+  public static function showInfo() //クラスメソッド
+  {
+    printf('Count: %d' . PHP_EOL, self::$count);
   }
 }
 $posts = [];
@@ -130,3 +157,4 @@ $posts[0] = new Post('hello');
 $posts[1] = new Post('hello again');
 $posts[0]->show();
 $posts[1]->show();
+Post::showInfo();
