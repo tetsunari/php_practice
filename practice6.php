@@ -134,27 +134,56 @@
 // $posts[1]->show();
 
 //static
-class Post
+// class Post
+// {
+//   private $text;
+//   private static $count = 0;  //クラスプロパティ
+//   // private const VERSION = 0.1;  //オブジェクト定数
+//   public const VERSION = 0.1;   //別の値の再代入できないからpublicでも良い
+//   public function __construct($text)
+//   {
+//     $this->text = $text;
+//     self::$count++;
+//   }
+//   public function show()
+//   {
+//     printf('%s' . PHP_EOL, $this->text);
+//   }
+//   public static function showInfo() //クラスメソッド
+//   {
+//     printf('Count: %d' . PHP_EOL, self::$count);
+//     printf('VERSION: %.1f' . PHP_EOL, self::VERSION);
+//   }
+// }
+// $posts = [];
+// $posts[0] = new Post('hello');
+// $posts[1] = new Post('hello again');
+// $posts[0]->show();
+// $posts[1]->show();
+// Post::showInfo();
+// echo Post::VERSION . PHP_EOL;
+
+//クラス継承
+class Post  //親クラス
 {
   private $text;
-  private static $count = 0;  //クラスプロパティ
   public function __construct($text)
   {
     $this->text = $text;
-    self::$count++;
   }
   public function show()
   {
     printf('%s' . PHP_EOL, $this->text);
   }
-  public static function showInfo() //クラスメソッド
-  {
-    printf('Count: %d' . PHP_EOL, self::$count);
-  }
+}
+class SponsoredPost extends Post  //子クラス
+{
+
 }
 $posts = [];
 $posts[0] = new Post('hello');
 $posts[1] = new Post('hello again');
+$posts[2] = new SponsoredPost('hello hello');
 $posts[0]->show();
 $posts[1]->show();
-Post::showInfo();
+$posts[2]->show();
