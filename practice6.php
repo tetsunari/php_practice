@@ -265,7 +265,7 @@
 // $posts[2]->show();
 // $posts[2]->showSponsor();
 
-//型の継承
+//型の継承  クラスを継承すると型も継承される
 class Post
 {
   protected $text;
@@ -295,7 +295,7 @@ $posts = [];
 $posts[0] = new Post('hello');
 $posts[1] = new Post('hello again');
 $posts[2] = new SponsoredPost('hello hello', 'dotinstall');
-function processPost(Post $post)
+function processPost(Post $post)  //postの$postを受け取る
 {
   $post->show();
 }

@@ -1,5 +1,5 @@
 <?php
-//abstract
+//abstract  子クラスでも独自の定義をするようにする
 abstract class BasePost
 {
   protected $text;
